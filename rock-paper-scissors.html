@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game Score Tracker</title>
 </head>
 <body>
+    <h1>Welcome to the Game!</h1>
+    <form id="userForm">
+        <label for="username">Enter your name:</label>
+        <input type="text" id="username" name="username">
+        <button type="submit">Start Game</button>
+    </form>
+
+    <div id="gameSection" style="display: none;">
+        <h2>Hello, <span id="displayName"></span>!</h2>
+        <p>Score:</p>
+        <p>Wins: <span id="winCount">0</span></p>
+        <p>Losses: <span id="loseCount">0</span></p>
+        <p>Draws: <span id="drawCount">0</span>
+        <div>
+          <button>Rock</button>
+          <button>Paper</button>
+          <button>Scissors</button>
+        </div>
+    </div>
     
+    <script src="js/rock-paper-scisors.js"></script>
 </body>
 </html>
