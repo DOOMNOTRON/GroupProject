@@ -1,6 +1,6 @@
 Rock, paper, scissors game
 
-Requierments:
+Requirements:
 - VS Code
 
 Current objectives:
