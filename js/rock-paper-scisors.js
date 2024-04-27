@@ -10,22 +10,63 @@ var winCount = 0;
 var loseCount = 0;
 var drawCount = 0;
 
-// Simulating a game scenario
-// Let's say the user clicks a button to play the game, and based on some logic, they either win, lose, or draw
-// code not implemented or working yet
-function playGame() {
-    // Simulated game logic
-    var randomNumber = Math.random(); // Generate a random number between 0 and 1
+// Simulating a game scenario. Passes in two parameter from the button clicked by the user.
+function playGame(playerMove, num) {
 
-    // If the random number is greater than 0.5, consider it a win, otherwise a loss
-    if (randomNumber > 0.5) {
+    console.log('Player selects: ' + playerMove, num);
+    //calls the method and returns 2 variables. A string and its index. I do not know if the index is important but it made it easier for me to see the logic of the game.
+    //both string and index are stored in 'aiSelections'
+    var aiSelections = aiMoves();
+
+    // pulls out the individual parts stored and sets the to the var name.
+    var aiMove = aiSelections.selection;
+    var aiIndex = aiSelections.index;
+    
+    // Draw scenario
+    if (aiMove === playerMove) {
+        drawCount++;
+        console.log('Tie game')
+    }
+    // Winning scenarios
+    else if ((aiIndex === 0 && num === 1) || (aiIndex == 1 && num === 2) ||(aiIndex === 2 && num === 0)) {
         winCount++;
-    } else {
+        console.log('You Win!')
+    }
+    // All else will be losing scenarios
+    else {
         loseCount++;
+        console.log('You Lose!')
     }
 
     // Update the score display
     document.getElementById("winCount").textContent = winCount;
     document.getElementById("loseCount").textContent = loseCount;
     document.getElementById("drawCount").textContent = drawCount;
+    return;
+}
+
+// Method to randomly select a string from an array. Returns a string and its corresponding index.
+function aiMoves() {
+    var gameArray = ['rock', 'paper', 'scissors'];
+    // Picks a random index
+    var randomIndex = Math.floor(Math.random() * gameArray.length);
+    // Gets the string of the selected random index.
+    var randomSelection = gameArray[randomIndex];
+
+
+    console.log('Ai selects: ' + randomSelection, randomIndex);
+    return {selection: randomSelection, index: randomIndex};
+}
+
+// Resets score to zeros
+function resetGame() {
+
+    winCount = 0;
+    loseCount = 0;
+    drawCount = 0;
+
+    document.getElementById("winCount").textContent = winCount;
+    document.getElementById("loseCount").textContent = loseCount;
+    document.getElementById("drawCount").textContent = drawCount;
+    return;
 }

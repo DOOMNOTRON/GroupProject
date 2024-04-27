@@ -20,9 +20,15 @@
         <p>Losses: <span id="loseCount">0</span></p>
         <p>Draws: <span id="drawCount">0</span>
         <div>
-          <button>Rock</button>
-          <button>Paper</button>
-          <button>Scissors</button>
+          <button onclick="playGame('rock', 0)">Rock</button>
+          <button onclick="playGame('paper', 1)">Paper</button>
+          <button onclick="playGame('scissors', 2)">Scissors</button>
+        </div>
+        <div>
+            <button onclick="resetGame()">Reset Score</button>
+            <!--<P>Your Selection: </P>
+            <p>Ai Selection: </p>
+            <p>Result: </p> -->
         </div>
     </div>
     
